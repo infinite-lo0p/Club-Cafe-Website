@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Cafe | >_ dev_mode</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">./club_cafe.sh</div>
+        <nav>
+            <ul>
+                <li><a href="#home">~/home</a></li>
+                <li><a href="#menu">~/menu</a></li>
+                <li><a href="#about">~/about</a></li>
+                <li><a href="#contact">~/contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-body">
+                    <p class="prompt"><span class="user">guest@clubcafe</span>:<span class="path">~</span>$
+                        ./init_coffee.sh</p>
+                    <p class="output">Loading caffeine modules...</p>
+                    <p class="output">Brewing perfection... [OK]</p>
+                    <h1 class="glitch" data-text="Club Cafe">Club Cafe</h1>
+                    <p class="subtitle">> Fuel for your code.</p>
+                    <a href="#menu" class="btn">View Menu_</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="section">
+            <h2 class="section-title"><span class="comment">// Our Selections</span></h2>
+            <div class="grid">
+                <!-- Placeholder Items -->
+                <div class="card">
+                    <div class="card-header">item_01.json</div>
+                    <div class="card-body">
+                        <h3>Espresso</h3>
+                        <p class="price">var price = $3.50;</p>
+                        <p class="desc">Pure energy. No dependencies.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">item_02.json</div>
+                    <div class="card-body">
+                        <h3>Latte</h3>
+                        <p class="price">var price = $4.50;</p>
+                        <p class="desc">Milk + Espresso. Integrated flawlessly.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">item_03.json</div>
+                    <div class="card-body">
+                        <h3>Cappuccino</h3>
+                        <p class="price">var price = $4.00;</p>
+                        <p class="desc">Foam level: High.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title"><span class="comment">// About Us</span></h2>
+            <div class="terminal-block">
+                <p><span class="keyword">class</span> <span class="class-name">ClubCafe</span> {</p>
+                <div class="indent">
+                    <p><span class="keyword">constructor</span>() {</p>
+                    <div class="indent">
+                        <p><span class="this">this</span>.mission = <span class="string">"To serve the best coffee while
+                                you debug."</span>;</p>
+                        <p><span class="this">this</span>.founded = <span class="number">2023</span>;</p>
+                        <p><span class="this">this</span>.wifi = <span class="boolean">true</span>;</p>
+                    </div>
+                    <p>}</p>
+                </div>
+                <p>}</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title"><span class="comment">// Contact</span></h2>
+            <form class="terminal-form">
+                <div class="form-group">
+                    <label for="name">input name:</label>
+                    <input type="text" id="name" placeholder="_">
+                </div>
+                <div class="form-group">
+                    <label for="email">input email:</label>
+                    <input type="email" id="email" placeholder="_">
+                </div>
+                <div class="form-group">
+                    <label for="msg">input message:</label>
+                    <textarea id="msg" rows="4" placeholder="_"></textarea>
+                </div>
+                <button type="submit" class="btn">Submit_Query()</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright (c) 2025 Club Cafe. All rights reserved. <span class="cursor">|</span></p>
+    </footer>
+
+</body>
+
+</html>
