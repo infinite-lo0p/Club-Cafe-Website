@@ -24,9 +24,8 @@ This repository contains the project work for the "Club Cafe" website, developed
 The project was developed using the following technologies:
 
 *   **Frontend:** HTML5, CSS3, Javascript
-*   **Backend:** Python (Django/Flask)
-*   **Database:** MongoDB
-*   **Hosting:** Vercel
+*   **Backend:** Python Django
+*   **Database:** MySQL
 
 ## Course Project Note
 This project was completed as an academic assignment. While it demonstrates core web development principles, it may not reflect the full robustness or scalability of a production-ready application.
