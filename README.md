@@ -3,6 +3,19 @@
 ## Overview
 This repository contains the project work for the "Club Cafe" website, developed as part of a Python Programming Minor Project assignment. The goal was to design and implement a functional website for a fictional cafe, showcasing key web development concepts and Python backend integration.
 
+## Requirements
+- Menu with cake varieties
+    1. Signature Cakes - Classic Black Forest, Red Velvet Delight, Vanilla Buttercream, Pineapple Fresh Cream, Chocolate Truffle
+    2. Premium Designer Cakes- Ferrero Rocher Cake, Oreo Crunch Cake, Blueberry Cheesecake, Butterscotch Caramel Cake
+    3. Cupcakes - Chocolate Fudge Cupcake, Vanilla Sprinkle Cupcake, Red Velvet Cupcake, Oreo Cupcake
+    4. Pastries - Chocolate Pastry, Black Forest Pastry, Strawberry Pastry, Butterscotch Pastry
+- Online ordering
+- Gallery
+- Contact form
+- About page
+- Location & timings
+- Reviews / testimonials.
+
 ## Project Features
 
 ### Core Functionality

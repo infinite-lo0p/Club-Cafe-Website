@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Cafe | >_ dev_mode</title>
+    <title>COEP Byte Cafe | >_ dev_mode</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +14,16 @@
 <body>
 
     <header>
-        <div class="logo">./club_cafe.sh</div>
+        <div class="logo">./coep_cafe.sh</div>
         <nav>
             <ul>
                 <li><a href="#home">~/home</a></li>
                 <li><a href="#menu">~/menu</a></li>
+                <li><a href="#order">~/order</a></li>
+                <li><a href="#gallery">~/gallery</a></li>
+                <li><a href="#reviews">~/reviews</a></li>
                 <li><a href="#about">~/about</a></li>
+                <li><a href="#location">~/location</a></li>
                 <li><a href="#contact">~/contact</a></li>
             </ul>
         </nav>
@@ -34,11 +38,11 @@
                     <span class="dot green"></span>
                 </div>
                 <div class="terminal-body">
-                    <p class="prompt"><span class="user">guest@clubcafe</span>:<span class="path">~</span>$
+                    <p class="prompt"><span class="user">student@coep</span>:<span class="path">~</span>$
                         ./init_coffee.sh</p>
                     <p class="output">Loading caffeine modules...</p>
                     <p class="output">Brewing perfection... [OK]</p>
-                    <h1 class="glitch" data-text="Club Cafe">Club Cafe</h1>
+                    <h1 class="glitch" data-text="COEP Byte Cafe">COEP Byte Cafe</h1>
                     <p class="subtitle">> Fuel for your code.</p>
                     <a href="#menu" class="btn">View Menu_</a>
                 </div>
@@ -47,33 +51,236 @@
 
         <section id="menu" class="section">
             <h2 class="section-title"><span class="comment">// Our Selections</span></h2>
+
+            <!-- Category 1 -->
+            <h3 class="category-title">1. Signature_Cakes</h3>
             <div class="grid">
-                <!-- Placeholder Items -->
                 <div class="card">
-                    <div class="card-header">item_01.json</div>
+                    <div class="card-header">classic_black_forest.obj</div>
                     <div class="card-body">
-                        <h3>Espresso</h3>
-                        <p class="price">var price = $3.50;</p>
-                        <p class="desc">Pure energy. No dependencies.</p>
+                        <h3>Classic Black Forest</h3>
+                        <p class="price">const price = $5.00;</p>
+                        <p class="desc">Layers of chocolate and cherries.</p>
                         <button class="btn-sm">Add to Stack</button>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">item_02.json</div>
+                    <div class="card-header">red_velvet_delight.obj</div>
                     <div class="card-body">
-                        <h3>Latte</h3>
-                        <p class="price">var price = $4.50;</p>
-                        <p class="desc">Milk + Espresso. Integrated flawlessly.</p>
+                        <h3>Red Velvet Delight</h3>
+                        <p class="price">const price = $5.50;</p>
+                        <p class="desc">Smooth and velvety texture.</p>
                         <button class="btn-sm">Add to Stack</button>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">item_03.json</div>
+                    <div class="card-header">vanilla_buttercream.obj</div>
                     <div class="card-body">
-                        <h3>Cappuccino</h3>
-                        <p class="price">var price = $4.00;</p>
-                        <p class="desc">Foam level: High.</p>
+                        <h3>Vanilla Buttercream</h3>
+                        <p class="price">const price = $4.50;</p>
+                        <p class="desc">Classic vanilla elegance.</p>
                         <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">pineapple_fresh_cream.obj</div>
+                    <div class="card-body">
+                        <h3>Pineapple Fresh Cream</h3>
+                        <p class="price">const price = $4.75;</p>
+                        <p class="desc">Tropical freshness loaded.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">chocolate_truffle.obj</div>
+                    <div class="card-body">
+                        <h3>Chocolate Truffle</h3>
+                        <p class="price">const price = $6.00;</p>
+                        <p class="desc">Rich chocolate indulgence.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2 -->
+            <h3 class="category-title">2. Premium_Designer_Cakes</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">ferrero_rocher.obj</div>
+                    <div class="card-body">
+                        <h3>Ferrero Rocher Cake</h3>
+                        <p class="price">const price = $7.50;</p>
+                        <p class="desc">Hazelnut premium experience.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">oreo_crunch.obj</div>
+                    <div class="card-body">
+                        <h3>Oreo Crunch Cake</h3>
+                        <p class="price">const price = $6.50;</p>
+                        <p class="desc">Crunchy biscuit delight.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">blueberry_cheesecake.obj</div>
+                    <div class="card-body">
+                        <h3>Blueberry Cheesecake</h3>
+                        <p class="price">const price = $7.00;</p>
+                        <p class="desc">Creamy with berry glaze.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">butterscotch_caramel.obj</div>
+                    <div class="card-body">
+                        <h3>Butterscotch Caramel</h3>
+                        <p class="price">const price = $6.75;</p>
+                        <p class="desc">Sweet caramel drizzle.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3 -->
+            <h3 class="category-title">3. Cupcakes</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">choc_fudge_cup.obj</div>
+                    <div class="card-body">
+                        <h3>Chocolate Fudge</h3>
+                        <p class="price">const price = $3.00;</p>
+                        <p class="desc">Small bite, big taste.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">vanilla_sprinkle.obj</div>
+                    <div class="card-body">
+                        <h3>Vanilla Sprinkle</h3>
+                        <p class="price">const price = $2.50;</p>
+                        <p class="desc">Fun and colorful.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">red_velvet_cup.obj</div>
+                    <div class="card-body">
+                        <h3>Red Velvet</h3>
+                        <p class="price">const price = $3.25;</p>
+                        <p class="desc">Mini velvet luxury.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">oreo_cup.obj</div>
+                    <div class="card-body">
+                        <h3>Oreo Cupcake</h3>
+                        <p class="price">const price = $3.00;</p>
+                        <p class="desc">Cookies and cream.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 4 -->
+            <h3 class="category-title">4. Pastries</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">choc_pastry.obj</div>
+                    <div class="card-body">
+                        <h3>Chocolate Pastry</h3>
+                        <p class="price">const price = $4.00;</p>
+                        <p class="desc">Slice of heaven.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">bf_pastry.obj</div>
+                    <div class="card-body">
+                        <h3>Black Forest Pastry</h3>
+                        <p class="price">const price = $4.25;</p>
+                        <p class="desc">Cherry topped goodness.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">straw_pastry.obj</div>
+                    <div class="card-body">
+                        <h3>Strawberry Pastry</h3>
+                        <p class="price">const price = $4.00;</p>
+                        <p class="desc">Fresh strawberry slice.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">butter_pastry.obj</div>
+                    <div class="card-body">
+                        <h3>Butterscotch Pastry</h3>
+                        <p class="price">const price = $4.10;</p>
+                        <p class="desc">Crunchy sweet slice.</p>
+                        <button class="btn-sm">Add to Stack</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order" class="section">
+            <h2 class="section-title"><span class="comment">// Online Ordering</span></h2>
+            <div class="terminal-block">
+                <p class="output">Initiating secure connection...</p>
+                <p class="output">Connected to ordering mainframe.</p>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <label>Select delivery mode:</label>
+                    <select class="terminal-input"
+                        style="width: 100%; padding: 0.8rem; background: #0d1117; color: #c9d1d9; border: 1px solid #30363d; font-family: inherit;">
+                        <option>Pickup</option>
+                        <option>Delivery</option>
+                        <option>Dine-in</option>
+                    </select>
+                </div>
+                <button class="btn" style="margin-top: 1rem;">Proceed to Checkout_</button>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <h2 class="section-title"><span class="comment">// Gallery</span></h2>
+            <div class="grid">
+                <div class="card gallery-item">
+                    <div class="image-placeholder">IMG_001.png</div>
+                </div>
+                <div class="card gallery-item">
+                    <div class="image-placeholder">IMG_002.png</div>
+                </div>
+                <div class="card gallery-item">
+                    <div class="image-placeholder">IMG_003.png</div>
+                </div>
+                <div class="card gallery-item">
+                    <div class="image-placeholder">IMG_004.png</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="section">
+            <h2 class="section-title"><span class="comment">// User Reviews</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="comment">"Best coffee code I've tasted!"</p>
+                        <p class="user">- @dev_guru</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="comment">"The bug squashed itself after one cake."</p>
+                        <p class="user">- @syntax_error_404</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="comment">"10/10 would compile again."</p>
+                        <p class="user">- @fullstack_fan</p>
                     </div>
                 </div>
             </div>
@@ -82,18 +289,34 @@
         <section id="about" class="section">
             <h2 class="section-title"><span class="comment">// About Us</span></h2>
             <div class="terminal-block">
-                <p><span class="keyword">class</span> <span class="class-name">ClubCafe</span> {</p>
+                <p><span class="keyword">class</span> <span class="class-name">COEPCafe</span> {</p>
                 <div class="indent">
                     <p><span class="keyword">constructor</span>() {</p>
                     <div class="indent">
-                        <p><span class="this">this</span>.mission = <span class="string">"To serve the best coffee while
-                                you debug."</span>;</p>
-                        <p><span class="this">this</span>.founded = <span class="number">2023</span>;</p>
+                        <p><span class="this">this</span>.mission = <span class="string">"Fueling engineers for exams &
+                                hackathons."</span>;</p>
+                        <p><span class="this">this</span>.founded = <span class="number">1854</span>;</p>
                         <p><span class="this">this</span>.wifi = <span class="boolean">true</span>;</p>
                     </div>
                     <p>}</p>
                 </div>
                 <p>}</p>
+            </div>
+        </section>
+
+        <section id="location" class="section">
+            <h2 class="section-title"><span class="comment">// Location & Timings</span></h2>
+            <div class="terminal-block">
+                <p><span class="keyword">const</span> location = <span class="string">"Boat Club Road, COEP Campus,
+                        Pune"</span>;</p>
+                <br>
+                <p><span class="comment">// Operating Hours</span></p>
+                <p><span class="keyword">let</span> timings = {</p>
+                <div class="indent">
+                    <p>Mon_Fri: <span class="string">"08:00 - 22:00"</span>,</p>
+                    <p>Sat_Sun: <span class="string">"09:00 - 23:00"</span></p>
+                </div>
+                <p>};</p>
             </div>
         </section>
 
@@ -118,7 +341,7 @@
     </main>
 
     <footer>
-        <p>Copyright (c) 2025 Club Cafe. All rights reserved. <span class="cursor">|</span></p>
+        <p>Copyright (c) 2025 COEP Byte Cafe. All rights reserved. <span class="cursor">|</span></p>
     </footer>
 
 </body>
