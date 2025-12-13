@@ -74,7 +74,7 @@ nav ul {
     border-radius: 6px;
     width: 100%;
     max-width: 800px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .terminal-header {
@@ -93,9 +93,17 @@ nav ul {
     display: inline-block;
 }
 
-.red { background-color: #ff5f56; }
-.yellow { background-color: #ffbd2e; }
-.green { background-color: #27c93f; }
+.red {
+    background-color: #ff5f56;
+}
+
+.yellow {
+    background-color: #ffbd2e;
+}
+
+.green {
+    background-color: #27c93f;
+}
 
 .terminal-body {
     padding: 2rem;
@@ -105,8 +113,14 @@ nav ul {
     margin-bottom: 1rem;
 }
 
-.user { color: var(--green); color: #27c93f;}
-.path { color: var(--primary-color); }
+.user {
+    color: var(--green);
+    color: #27c93f;
+}
+
+.path {
+    color: var(--primary-color);
+}
 
 h1.glitch {
     font-size: 3rem;
@@ -217,12 +231,29 @@ h1.glitch {
     border-left: 3px solid var(--secondary-color);
 }
 
-.keyword { color: var(--accent-color); }
-.class-name { color: #d2a8ff; }
-.string { color: #a5d6ff; }
-.number { color: #79c0ff; }
-.boolean { color: #56d364; }
-.this { color: #79c0ff; }
+.keyword {
+    color: var(--accent-color);
+}
+
+.class-name {
+    color: #d2a8ff;
+}
+
+.string {
+    color: #a5d6ff;
+}
+
+.number {
+    color: #79c0ff;
+}
+
+.boolean {
+    color: #56d364;
+}
+
+.this {
+    color: #79c0ff;
+}
 
 .indent {
     margin-left: 1.5rem;
@@ -242,7 +273,8 @@ label {
     margin-bottom: 0.5rem;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 0.8rem;
     background-color: #0d1117;
@@ -251,7 +283,8 @@ input, textarea {
     font-family: var(--font-mono);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border-color: var(--primary-color);
 }
@@ -270,8 +303,43 @@ footer {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* Category Titles */
+.category-title {
+    grid-column: 1 / -1;
+    color: var(--secondary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+/* Gallery */
+.gallery-item {
+    aspect-ratio: 16/9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.image-placeholder {
+    color: #484f58;
+    border: 2px dashed #30363d;
+    padding: 2rem;
+    border-radius: 4px;
 }
 
 /* Media Queries */
@@ -280,7 +348,7 @@ footer {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .hero {
         height: auto;
         padding: 6rem 2rem 2rem;
