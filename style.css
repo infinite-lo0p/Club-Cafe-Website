@@ -11,13 +11,14 @@
     --accent-color: #f78166;
     --border-color: #30363d;
     --card-bg: #161b22;
-    --header-bg: rgba(13, 17, 23, 0.85); /* Glassmorphism base */
+    --header-bg: rgba(13, 17, 23, 0.85);
+    /* Glassmorphism base */
     --hover-bg: rgba(88, 166, 255, 0.1);
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    
+
     --font-mono: 'Fira Code', 'Courier New', monospace;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
+
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
@@ -28,13 +29,16 @@
     --text-color: #24292f;
     --text-muted: #57606a;
     --primary-color: #0969da;
-    --secondary-color: #2da44e; /* darker green for contrast */
-    --accent-color: #cf222e; /* darker red for contrast */
+    --secondary-color: #2da44e;
+    /* darker green for contrast */
+    --accent-color: #cf222e;
+    /* darker red for contrast */
     --border-color: #d0d7de;
     --card-bg: #f6f8fa;
     --header-bg: rgba(255, 255, 255, 0.85);
     --hover-bg: rgba(9, 105, 218, 0.1);
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Softer shadow for light mode */
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    /* Softer shadow for light mode */
 }
 
 /* Reset & Base Styles */
@@ -69,7 +73,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%; /* Use percentage for better responsiveness */
+    padding: 1rem 5%;
+    /* Use percentage for better responsiveness */
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -90,32 +95,46 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
+    /* Center items vertically */
     gap: 2rem;
 }
 
 /* Theme Toggle Button */
 .theme-btn {
     background: none;
-    border: none;
+    border: 1px solid var(--border-color);
+    /* Added subtle border for better definition */
     cursor: pointer;
-    font-size: 1.2rem;
     color: var(--text-color);
-    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    /* Remove padding to let flex center it */
 }
 
 .theme-btn:hover {
     background-color: var(--hover-bg);
+    border-color: var(--primary-color);
+    transform: rotate(15deg);
+    /* Subtle rotation on hover */
+}
+
+.theme-btn svg {
+    /* Ensure svg is sized correctly if needed */
+    width: 20px;
+    height: 20px;
 }
 
 /* Hero Section */
 .hero {
-    min-height: 80vh; /* Changed to min-height for content safety */
+    min-height: 80vh;
+    /* Changed to min-height for content safety */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -136,7 +155,8 @@ nav ul {
 }
 
 h1.glitch {
-    font-size: clamp(3rem, 8vw, 5rem); /* Responsive font size */
+    font-size: clamp(3rem, 8vw, 5rem);
+    /* Responsive font size */
     color: var(--text-color);
     margin-bottom: 0.5rem;
     font-family: var(--font-mono);
@@ -219,7 +239,8 @@ h1.glitch {
 }
 
 .card-header {
-    background-color: var(--bg-color); /* Slightly different from card-bg */
+    background-color: var(--bg-color);
+    /* Slightly different from card-bg */
     padding: 0.8rem 1.5rem;
     font-size: 0.85rem;
     border-bottom: 1px solid var(--border-color);
@@ -251,7 +272,8 @@ h1.glitch {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Pushes button to bottom */
+    flex-grow: 1;
+    /* Pushes button to bottom */
 }
 
 .btn-sm {
@@ -291,7 +313,8 @@ h1.glitch {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000; /* Keep placeholder bg dark for contrast with text */
+    background-color: #000;
+    /* Keep placeholder bg dark for contrast with text */
 }
 
 .image-placeholder {
@@ -392,7 +415,8 @@ textarea,
 select.terminal-input {
     width: 100%;
     padding: 1rem;
-    background-color: var(--bg-color); /* Input bg matches page bg */
+    background-color: var(--bg-color);
+    /* Input bg matches page bg */
     border: 1px solid var(--border-color);
     color: var(--text-color);
     font-family: var(--font-sans);
@@ -424,21 +448,39 @@ footer {
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .card {
     animation: fadeIn 0.5s ease-out forwards;
-    opacity: 0; 
+    opacity: 0;
     /* Staggered animation can be done with nth-child but simple fadeIn is safer for performance */
 }
 
 /* Stagger Animations manually for a few items for polish */
-.grid .card:nth-child(1) { animation-delay: 0.1s; }
-.grid .card:nth-child(2) { animation-delay: 0.2s; }
-.grid .card:nth-child(3) { animation-delay: 0.3s; }
-.grid .card:nth-child(4) { animation-delay: 0.4s; }
+.grid .card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.grid .card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.grid .card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.grid .card:nth-child(4) {
+    animation-delay: 0.4s;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -453,11 +495,11 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .hero {
         padding-top: 2rem;
     }
-    
+
     h1.glitch {
         font-size: 2.5rem;
     }
