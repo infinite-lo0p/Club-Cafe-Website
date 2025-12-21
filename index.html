@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,18 +25,18 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#location">Location</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-btn" title="Switch Theme">☀️</button></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
-            <div class="terminal-window" style="border: none; box-shadow: none; background: transparent;">
-                <div class="terminal-body" style="text-align: center; padding: 0;">
-                    <h1 class="glitch" data-text="COEP Byte Cafe" style="font-size: 4rem; margin-bottom: 0.5rem;">COEP
-                        Byte Cafe</h1>
-                    <p class="subtitle" style="font-size: 1.2rem; color: #8b949e;">Fueling Innovation since 1854</p>
-                    <p class="desc" style="max-width: 600px; margin: 0 auto 2rem; color: #c9d1d9;">
+            <div class="terminal-window clean-window">
+                <div class="terminal-body center-text">
+                    <h1 class="glitch" data-text="COEP Byte Cafe">COEP Byte Cafe</h1>
+                    <p class="subtitle">Fueling Innovation since 1854</p>
+                    <p class="desc hero-desc">
                         The ultimate gathering spot for COEP's brightest minds. Premium coffee, delicious snacks, and a
                         space designed for collaboration.
                     </p>
@@ -48,7 +48,7 @@
         <section id="menu" class="section">
             <h2 class="section-title">Our Selections</h2>
 
-            <!-- Category 1 -->
+            <!-- Signature Cakes -->
             <h3 class="category-title">Signature Cakes</h3>
             <div class="grid">
                 <div class="card">
@@ -60,7 +60,8 @@
                         <button class="btn-sm">Add to Cart</button>
                     </div>
                 </div>
-                <div class="card">
+                <!-- ... other items ... -->
+                 <div class="card">
                     <div class="card-header">Red Velvet Delight</div>
                     <div class="card-body">
                         <h3>Red Velvet Delight</h3>
@@ -98,7 +99,7 @@
                 </div>
             </div>
 
-            <!-- Category 2 -->
+            <!-- Premium Designer Cakes -->
             <h3 class="category-title">Premium Designer Cakes</h3>
             <div class="grid">
                 <div class="card">
@@ -139,7 +140,7 @@
                 </div>
             </div>
 
-            <!-- Category 3 -->
+             <!-- Cupcakes -->
             <h3 class="category-title">Cupcakes</h3>
             <div class="grid">
                 <div class="card">
@@ -180,7 +181,7 @@
                 </div>
             </div>
 
-            <!-- Category 4 -->
+            <!-- Pastries -->
             <h3 class="category-title">Pastries</h3>
             <div class="grid">
                 <div class="card">
@@ -224,18 +225,17 @@
 
         <section id="order" class="section">
             <h2 class="section-title">Online Ordering</h2>
-            <div class="terminal-block" style="border-left: 3px solid #58a6ff; background: #161b22;">
-                <p class="output" style="color: #c9d1d9;">Start your order here.</p>
-                <div class="form-group" style="margin-top: 1rem;">
+            <div class="terminal-block blue-border">
+                <p class="output">Start your order here.</p>
+                <div class="form-group margin-top">
                     <label>Select delivery mode:</label>
-                    <select class="terminal-input"
-                        style="width: 100%; padding: 0.8rem; background: #0d1117; color: #c9d1d9; border: 1px solid #30363d; font-family: inherit; border-radius: 4px;">
+                    <select class="terminal-input full-width">
                         <option>Pickup</option>
                         <option>Delivery</option>
                         <option>Dine-in</option>
                     </select>
                 </div>
-                <button class="btn" style="margin-top: 1rem;">Proceed to Checkout</button>
+                <button class="btn margin-top">Proceed to Checkout</button>
             </div>
         </section>
 
@@ -283,8 +283,8 @@
 
         <section id="about" class="section">
             <h2 class="section-title">About Us</h2>
-            <div class="terminal-block" style="border-left: 3px solid #238636; background: #161b22; padding: 2rem;">
-                <p style="font-size: 1.1rem; color: #c9d1d9; line-height: 1.8;">
+            <div class="terminal-block green-border padded-block">
+                <p class="about-text">
                     Established in 1854, <strong>COEP Byte Cafe</strong> has been the go-to spot for generations of
                     engineers.
                     We provide high-quality snacks and beverages to fuel your late-night study sessions and hackathons.
@@ -295,10 +295,10 @@
 
         <section id="location" class="section">
             <h2 class="section-title">Location & Timings</h2>
-            <div class="terminal-block" style="border-left: 3px solid #f78166; background: #161b22; padding: 2rem;">
-                <p style="margin-bottom: 1rem;"><strong>Address:</strong> Boat Club Road, COEP Campus, Pune</p>
+            <div class="terminal-block orange-border padded-block">
+                <p class="margin-bottom"><strong>Address:</strong> Boat Club Road, COEP Campus, Pune</p>
                 <p><strong>Operating Hours:</strong></p>
-                <ul style="list-style: none; margin-top: 0.5rem; color: #8b949e;">
+                <ul class="timings-list">
                     <li>Mon - Fri: 08:00 - 22:00</li>
                     <li>Sat - Sun: 09:00 - 23:00</li>
                 </ul>
@@ -310,15 +310,15 @@
             <form class="terminal-form">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" style="border-radius: 4px;">
+                    <input type="text" id="name" placeholder="Your Name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email" style="border-radius: 4px;">
+                    <input type="email" id="email" placeholder="Your Email">
                 </div>
                 <div class="form-group">
                     <label for="msg">Message</label>
-                    <textarea id="msg" rows="4" placeholder="Your Message" style="border-radius: 4px;"></textarea>
+                    <textarea id="msg" rows="4" placeholder="Your Message"></textarea>
                 </div>
                 <button type="submit" class="btn">Send Message</button>
             </form>
@@ -329,6 +329,7 @@
         <p>Copyright (c) 2025 COEP Byte Cafe. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 
 </html>
