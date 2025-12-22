@@ -154,7 +154,7 @@ nav ul {
     padding: 0;
 }
 
-h1.glitch {
+h1.hero-title {
     font-size: clamp(3rem, 8vw, 5rem);
     /* Responsive font size */
     color: var(--text-color);
