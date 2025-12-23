@@ -120,42 +120,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) {
+    const paymentModal = document.getElementById('payment-modal');
+    const closePaymentBtn = document.getElementById('close-payment');
+    const payNowBtn = document.getElementById('pay-now-btn');
+    const paymentTotal = document.getElementById('payment-total');
+
+    // Payment Method Tabs
+    const methodBtns = document.querySelectorAll('.method-btn');
+    const forms = document.querySelectorAll('.payment-form');
+
+    methodBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            methodBtns.forEach(b => b.classList.remove('active'));
+            forms.forEach(f => f.classList.remove('active'));
+
+            btn.classList.add('active');
+            const method = btn.getAttribute('data-method');
+            document.getElementById(`${method}-form`).classList.add('active');
+        });
+    });
+
+    if (checkoutBtn && paymentModal) {
         checkoutBtn.addEventListener('click', () => {
             const deliveryMode = document.getElementById('delivery-mode').value;
             const name = document.getElementById('order-name').value;
             const email = document.getElementById('order-email').value;
 
-            fetch('/api/checkout/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrftoken
-                },
-                body: JSON.stringify({
-                    delivery_mode: deliveryMode,
-                    name: name,
-                    email: email
-                })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        // Show success message inside the cart container
-                        const cartContainer = document.getElementById('cart-container');
-                        cartContainer.innerHTML = `
-                        <div class="success-message">
-                            <span class="success-icon">🎉</span>
-                            <h3>Order Placed Successfully!</h3>
-                            <p class="output">Order #${data.order_id}</p>
-                            <p class="desc">Thank you, ${name || 'Guest'}. Your order will be ready shortly.</p>
-                            <button class="btn margin-top" onclick="location.reload()">Continue Shopping</button>
-                        </div>
-                    `;
-                    } else {
-                        alert('Error: ' + data.message);
-                    }
-                });
+            if (!name || !email) {
+                alert("Please enter your name and email.");
+                return;
+            }
+
+            // Show Payment Modal
+            const totalText = document.getElementById('cart-total').innerText;
+            paymentTotal.innerText = `₹${totalText}`;
+            paymentModal.classList.remove('hidden');
+
+            // Handle Pay Now
+            payNowBtn.onclick = () => {
+                // Show Processing
+                document.getElementById('processing-view').classList.remove('hidden');
+
+                // Simulate Delay
+                setTimeout(() => {
+                    // Actual API Call
+                    fetch('/api/checkout/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrftoken
+                        },
+                        body: JSON.stringify({
+                            delivery_mode: deliveryMode,
+                            name: name,
+                            email: email
+                        })
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            paymentModal.classList.add('hidden');
+                            document.getElementById('processing-view').classList.add('hidden');
+
+                            if (data.status === 'success') {
+                                // Show success message inside the cart container
+                                const cartContainer = document.getElementById('cart-container');
+                                cartContainer.innerHTML = `
+                                <div class="success-message">
+                                    <span class="success-icon">🎉</span>
+                                    <h3>Order Placed Successfully!</h3>
+                                    <p class="output">Order #${data.order_id}</p>
+                                    <p class="desc">Thank you, ${name || 'Guest'}. Your order will be ready shortly.</p>
+                                    <button class="btn margin-top" onclick="location.reload()">Continue Shopping</button>
+                                </div>
+                            `;
+                            } else {
+                                alert('Error: ' + data.message);
+                            }
+                        });
+                }, 2000); // 2 second delay for realism
+            };
+        });
+
+        closePaymentBtn.addEventListener('click', () => {
+            paymentModal.classList.add('hidden');
         });
     }
 

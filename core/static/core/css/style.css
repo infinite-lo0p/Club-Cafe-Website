@@ -581,4 +581,158 @@ footer {
 
 .modal-actions .btn {
     min-width: 100px;
+}/* Payment Terminal Styles */
+.payment-terminal {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 400px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.payment-header {
+    background-color: var(--bg-color);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.payment-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.payment-body {
+    padding: 1.5rem;
+}
+
+.payment-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.amount-value {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-family: var(--font-mono);
+}
+
+.payment-methods {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.method-btn {
+    flex: 1;
+    padding: 0.8rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.method-btn.active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: var(--hover-bg);
+}
+
+.payment-form {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.payment-form.active {
+    display: block;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.row .form-group {
+    flex: 1;
+}
+
+/* UPI Styles */
+.qr-placeholder {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+}
+
+.qr-code {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    margin: 0 auto 0.5rem;
+    /* Simulate QR pattern */
+    background-image: linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000),
+        linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.8;
+}
+
+/* Processing Overlay */
+.processing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.processing-overlay.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
