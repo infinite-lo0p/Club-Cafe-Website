@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateButtonIcon(systemTheme);
     }
 
-    if(themeToggleBtn){
+    if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
             let theme = document.documentElement.getAttribute('data-theme');
             let newTheme = theme === 'light' ? 'dark' : 'light';
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateButtonIcon(theme) {
-        if(!themeToggleBtn) return;
+        if (!themeToggleBtn) return;
         if (theme === 'dark') {
             themeToggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
             themeToggleBtn.setAttribute('title', 'Switch to Light Mode');
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // CART LOGIC
-    
+
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -67,17 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartEmptyMsg = document.getElementById('cart-empty-message');
         const cartSummary = document.getElementById('cart-summary');
 
-        if(!cartItemsContainer) return;
+        if (!cartItemsContainer) return;
 
         cartItemsContainer.innerHTML = '';
-        
+
         if (data.items.length === 0) {
             cartEmptyMsg.style.display = 'block';
             cartSummary.style.display = 'none';
         } else {
             cartEmptyMsg.style.display = 'none';
             cartSummary.style.display = 'block';
-            
+
             data.items.forEach(item => {
                 const div = document.createElement('div');
                 div.classList.add('cart-item');
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 cartItemsContainer.appendChild(div);
             });
-            
+
             cartTotalSpan.innerText = data.total;
         }
     }
@@ -98,34 +98,34 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
-            
+
             fetch('/api/add-to-cart/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'X-CSRFToken': csrftoken
                 },
-                body: JSON.stringify({id: id})
+                body: JSON.stringify({ id: id })
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.status === 'success') {
-                    fetchCart();
-                    const originalText = e.target.innerText;
-                    e.target.innerText = "Added!";
-                    setTimeout(() => e.target.innerText = originalText, 1000);
-                }
-            });
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        fetchCart();
+                        const originalText = e.target.innerText;
+                        e.target.innerText = "Added!";
+                        setTimeout(() => e.target.innerText = originalText, 1000);
+                    }
+                });
         });
     });
 
     const checkoutBtn = document.getElementById('checkout-btn');
-    if(checkoutBtn){
+    if (checkoutBtn) {
         checkoutBtn.addEventListener('click', () => {
             const deliveryMode = document.getElementById('delivery-mode').value;
             const name = document.getElementById('order-name').value;
             const email = document.getElementById('order-email').value;
-            
+
             fetch('/api/checkout/', {
                 method: 'POST',
                 headers: {
@@ -138,34 +138,41 @@ document.addEventListener('DOMContentLoaded', () => {
                     email: email
                 })
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.status === 'success') {
-                    alert(data.message);
-                    fetchCart();
-                    document.getElementById('order-name').value = '';
-                    document.getElementById('order-email').value = '';
-                } else {
-                    alert('Error: ' + data.message);
-                }
-            });
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        // Show success message inside the cart container
+                        const cartContainer = document.getElementById('cart-container');
+                        cartContainer.innerHTML = `
+                        <div class="success-message">
+                            <span class="success-icon">🎉</span>
+                            <h3>Order Placed Successfully!</h3>
+                            <p class="output">Order #${data.order_id}</p>
+                            <p class="desc">Thank you, ${name || 'Guest'}. Your order will be ready shortly.</p>
+                            <button class="btn margin-top" onclick="location.reload()">Continue Shopping</button>
+                        </div>
+                    `;
+                    } else {
+                        alert('Error: ' + data.message);
+                    }
+                });
         });
     }
-    
+
     const clearCartBtn = document.getElementById('clear-cart-btn');
-    if(clearCartBtn){
+    if (clearCartBtn) {
         clearCartBtn.addEventListener('click', () => {
-            if(confirm("Are you sure you want to clear the cart?")){
+            if (confirm("Are you sure you want to clear the cart?")) {
                 fetch('/api/clear-cart/', {
                     method: 'POST',
                     headers: {
-                         'X-CSRFToken': csrftoken
+                        'X-CSRFToken': csrftoken
                     }
                 })
-                .then(res => res.json())
-                .then(data => {
-                    fetchCart();
-                });
+                    .then(res => res.json())
+                    .then(data => {
+                        fetchCart();
+                    });
             }
         });
     }

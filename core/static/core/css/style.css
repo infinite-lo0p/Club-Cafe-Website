@@ -200,6 +200,28 @@ h1.hero-title {
     transform: translateY(-2px);
 }
 
+.btn-danger {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-danger:hover {
+    background-color: rgba(247, 129, 102, 0.1);
+    box-shadow: 0 0 15px rgba(247, 129, 102, 0.2);
+}
+
+.success-message {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
 /* Sections */
 .section {
     padding: 6rem 2rem;
