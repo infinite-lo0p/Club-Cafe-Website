@@ -197,6 +197,18 @@
         <p>Copyright (c) 2025 COEP Byte Cafe. All rights reserved.</p>
     </footer>
 
+    <!-- Custom Confirmation Modal -->
+    <div id="confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Clear Cart?</h3>
+            <p>Are you sure you want to remove all items from your cart?</p>
+            <div class="modal-actions">
+                <button id="cancel-clear" class="btn">Cancel</button>
+                <button id="confirm-clear" class="btn btn-danger">Clear</button>
+            </div>
+        </div>
+    </div>
+
     <script src="{% static 'core/js/script.js' %}"></script>
 </body>
 

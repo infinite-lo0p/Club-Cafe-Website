@@ -160,19 +160,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const clearCartBtn = document.getElementById('clear-cart-btn');
-    if (clearCartBtn) {
+    const modal = document.getElementById('confirmation-modal');
+    const cancelClearBtn = document.getElementById('cancel-clear');
+    const confirmClearBtn = document.getElementById('confirm-clear');
+
+    if (clearCartBtn && modal) {
+        // Open Modal
         clearCartBtn.addEventListener('click', () => {
-            if (confirm("Are you sure you want to clear the cart?")) {
-                fetch('/api/clear-cart/', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': csrftoken
-                    }
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        fetchCart();
-                    });
+            modal.classList.remove('hidden');
+        });
+
+        // Close Modal on Cancel
+        cancelClearBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        // Confirm Clear
+        confirmClearBtn.addEventListener('click', () => {
+            fetch('/api/clear-cart/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrftoken
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    fetchCart();
+                    modal.classList.add('hidden');
+                });
+        });
+
+        // Close if clicked outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
             }
         });
     }
