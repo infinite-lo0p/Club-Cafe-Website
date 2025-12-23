@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COEP Byte Cafe</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">COEP Byte Cafe</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#order">Order</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-btn" title="Switch Theme">☀️</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="terminal-window clean-window">
+                <div class="terminal-body center-text">
+                    <h1 class="hero-title">COEP Byte Cafe</h1>
+                    <p class="subtitle">Fueling Innovation since 1854</p>
+                    <p class="desc hero-desc">
+                        The ultimate gathering spot for COEP's brightest minds. Premium coffee, delicious snacks, and a
+                        space designed for collaboration.
+                    </p>
+                    <a href="#menu" class="btn">View Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="section">
+            <h2 class="section-title">Our Selections</h2>
+
+            {% for category in categories %}
+            <h3 class="category-title">{{ category.name }}</h3>
+            <div class="grid">
+                {% for item in category.items.all %}
+                <div class="card">
+                    <div class="card-header">{{ item.name }}</div>
+                    <div class="card-body">
+                        <h3>{{ item.name }}</h3>
+                        <p class="price">₹ {{ item.price }}</p>
+                        <p class="desc">{{ item.description }}</p>
+                        <button class="btn-sm add-to-cart-btn" data-id="{{ item.id }}">Add to Cart</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </section>
+
+        <section id="order" class="section">
+            <h2 class="section-title">Your Order</h2>
+            <div class="terminal-block blue-border">
+                <div id="cart-container">
+                    <p class="output" id="cart-empty-message">Your cart is empty.</p>
+                    <div id="cart-items"></div>
+
+                    <div id="cart-summary" style="display:none;">
+                        <hr class="margin-top margin-bottom">
+                        <p class="output">Total: ₹ <span id="cart-total">0</span></p>
+
+                        <div class="form-group margin-top">
+                            <label>Select delivery mode:</label>
+                            <select id="delivery-mode" class="terminal-input full-width">
+                                <option value="Pickup">Pickup</option>
+                                <option value="Delivery">Delivery</option>
+                                <option value="Dine-in">Dine-in</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" id="order-name" class="terminal-input full-width"
+                                placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="order-email" class="terminal-input full-width"
+                                placeholder="Your Email">
+                        </div>
+
+                        <button class="btn margin-top" id="checkout-btn">Proceed to Checkout</button>
+                        <button class="btn margin-top btn-danger" id="clear-cart-btn" style="background: #e74c3c;">Clear
+                            Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <h2 class="section-title">Gallery</h2>
+            <div class="grid">
+                <div class="card gallery-item">
+                    <div class="image-placeholder">Cafe Interior</div>
+                </div>
+                <div class="card gallery-item">
+                    <div class="image-placeholder">Fresh Coffee</div>
+                </div>
+                <div class="card gallery-item">
+                    <div class="image-placeholder">Student Hangout</div>
+                </div>
+                <div class="card gallery-item">
+                    <div class="image-placeholder">Sweet Treats</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="section">
+            <h2 class="section-title">User Reviews</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="comment">"Best coffee I've tasted!"</p>
+                        <p class="user">- Rahul S.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="comment">"The stress melted away after one cake."</p>
+                        <p class="user">- Anjali P.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <p class="comment">"10/10 would visit again."</p>
+                        <p class="user">- Amit K.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">About Us</h2>
+            <div class="terminal-block green-border padded-block">
+                <p class="about-text">
+                    Established in 1854, <strong>COEP Byte Cafe</strong> has been the go-to spot for generations of
+                    engineers.
+                    We provide high-quality snacks and beverages to fuel your late-night study sessions and hackathons.
+                    A place where innovation meets taste.
+                </p>
+            </div>
+        </section>
+
+        <section id="location" class="section">
+            <h2 class="section-title">Location & Timings</h2>
+            <div class="terminal-block orange-border padded-block">
+                <p class="margin-bottom"><strong>Address:</strong> Boat Club Road, COEP Campus, Pune</p>
+                <p><strong>Operating Hours:</strong></p>
+                <ul class="timings-list">
+                    <li>Mon - Fri: 08:00 - 22:00</li>
+                    <li>Sat - Sun: 09:00 - 23:00</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact</h2>
+            <form class="terminal-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="msg">Message</label>
+                    <textarea id="msg" rows="4" placeholder="Your Message"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright (c) 2025 COEP Byte Cafe. All rights reserved.</p>
+    </footer>
+
+    <script src="{% static 'core/js/script.js' %}"></script>
+</body>
+
+</html>
